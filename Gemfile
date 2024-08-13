@@ -62,7 +62,7 @@ end
 gem "line-bot-api"
 
 group :development, :test do
-  gem "rspec-rails", "~> 5.0"
+  gem "rspec-rails", "~> 6.1"
   gem "factory_bot_rails"
   gem "faker"
 end
