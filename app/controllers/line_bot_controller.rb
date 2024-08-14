@@ -12,19 +12,8 @@ class LineBotController < ApplicationController
     events = client.parse_events_from(body)
 
     events.each do |event|
-      case event
-      when Line::Bot::Event::Message
-        case event.type
-        when Line::Bot::Event::MessageType::Text
-          message = {
-            type: "text",
-            text: event.message["text"]
-          }
-          client.reply_message(event["replyToken"], message)
-        end
-      end
+     line_bot_service.handle_event(event)
     end
-    head :ok
   end
 
   private
@@ -34,5 +23,9 @@ class LineBotController < ApplicationController
       config.channel_secret = ENV["LINE_CHANNEL_SECRET"]
       config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
     end
+  end
+
+  def line_bot_service
+    @line_bot_service ||= LineBotService.new(client)
   end
 end
