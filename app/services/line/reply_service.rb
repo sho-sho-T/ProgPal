@@ -7,11 +7,11 @@ class ReplyService
   def generate_reply
     case @message
     when /こんにちは/
-      "こんにちは！お元気ですか？"
+      'こんにちは！お元気ですか？'
     when /こんばんは/
-      "こんばんは！夜ご飯は食べましたか？"
+      'こんばんは！夜ご飯は食べましたか？'
     else
-      "申し訳ありません。よく分かりませんでした。"
+      '申し訳ありません。よく分かりませんでした。'
     end
   end
 end

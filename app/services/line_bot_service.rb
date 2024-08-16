@@ -1,5 +1,5 @@
-require_relative "line/reply_service"
-require_relative "line/message_presenter"
+require_relative 'line/reply_service'
+require_relative 'line/message_presenter'
 
 class LineBotService
   def initialize(client)
@@ -16,9 +16,9 @@ class LineBotService
   private
 
   def handle_message(event)
-    message = event.message["text"]
+    message = event.message['text']
     reply = ReplyService.new(message).generate_reply
     response = MessagePresenter.format_text_message(reply)
-    @client.reply_message(event["replyToken"], response)
+    @client.reply_message(event['replyToken'], response)
   end
 end
