@@ -1,0 +1,3 @@
+formatter:
+  rubocop:
+    command: ["bundle", "exec", "rubocop"]
