@@ -68,3 +68,6 @@ group :development, :test do
 end
 
 gem "dotenv-rails", groups: [ :development, :test ]
+
+gem "rubocop", require: false
+gem "ruby-lsp", require: false
