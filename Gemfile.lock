@@ -346,6 +346,7 @@ DEPENDENCIES
   rails (~> 7.2.0)
   rspec-rails (~> 5.0)
   rubocop
+  rubocop-rails
   rubocop-rails-omakase
   ruby-lsp
   selenium-webdriver

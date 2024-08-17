@@ -1,7 +1,18 @@
+require:
+  - rubocop-rails
+
 AllCops:
   NewCops: enable
   TargetRubyVersion: 3.2
+  Exclude:
+    - "db/**/*"
+    - "config/**/*"
+    - "script/**/*"
+    - "bin/{rails,rake}"
+    - "vendor/**/*"
+    - "node_modules/**/*"
 
+# スタイル関連
 Style/FrozenStringLiteralComment:
   Enabled: false
 
@@ -11,11 +22,68 @@ Style/StringLiterals:
 Style/ClassAndModuleChildren:
   Enabled: false
 
-Bundler/DuplicatedGroup:
-  Enabled: true
-
-Style/MutableConstant:
+Style/Documentation:
   Enabled: false
+
+Style/SymbolArray:
+  EnforcedStyle: percent
+
+Style/WordArray:
+  EnforcedStyle: percent
+
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
+
+Style/Lambda:
+  EnforcedStyle: literal
+
+# レイアウト関連
+Layout/LineLength:
+  Max: 120
 
 Layout/SpaceInsideArrayLiteralBrackets:
   EnforcedStyle: no_space
+
+Layout/ArgumentAlignment:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+# メトリクス関連
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/AbcSize:
+  Max: 30
+
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"
+    - "test/**/*"
+    - "config/routes.rb"
+
+# Bundler関連
+Bundler/DuplicatedGroup:
+  Enabled: true
+
+# Railsに特化した設定
+Rails:
+  Enabled: true
+
+Rails/Date:
+  EnforcedStyle: flexible
+
+Rails/TimeZone:
+  EnforcedStyle: flexible
+
+# その他
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+
+Style/MutableConstant:
+  Enabled: true
+
+Lint/AmbiguousBlockAssociation:
+  Exclude:
+    - "spec/**/*"
