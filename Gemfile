@@ -68,3 +68,5 @@ gem 'rubocop', require: false
 gem 'ruby-lsp', require: false
 
 gem 'rubocop-rails', require: false
+
+gem 'qiita'
