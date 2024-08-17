@@ -3,22 +3,23 @@ name: CI
 on:
   pull_request:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   scan_ruby:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: .ruby-version
+          ruby-version: "3.2.2" # 最新の安定版Rubyバージョンに更新
           bundler-cache: true
-
+      - name: Update Bundler
+        run: gem install bundler
+      - name: Install dependencies
+        run: bundle install
       - name: Scan for common Rails security vulnerabilities using static analysis
         run: bin/brakeman --no-pager
 
