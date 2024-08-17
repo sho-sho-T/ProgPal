@@ -14,8 +14,16 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: .ruby-version
+          ruby-version: "3.2.2" # 最新の安定版Rubyバージョンを指定
           bundler-cache: true
+      - name: Update Bundler
+        run: |
+          gem update --system
+          gem install bundler
+      - name: Install dependencies
+        run: |
+          bundle config set --local without 'production'
+          bundle install
       - name: Scan for common Rails security vulnerabilities using static analysis
         run: bin/brakeman --no-pager
 
@@ -27,8 +35,16 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: .ruby-version
+          ruby-version: "3.2.2"
           bundler-cache: true
+      - name: Update Bundler
+        run: |
+          gem update --system
+          gem install bundler
+      - name: Install dependencies
+        run: |
+          bundle config set --local without 'production'
+          bundle install
       - name: Lint code for consistent style
         run: bin/rubocop -f github
 
@@ -48,8 +64,16 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: .ruby-version
+          ruby-version: "3.2.2"
           bundler-cache: true
+      - name: Update Bundler
+        run: |
+          gem update --system
+          gem install bundler
+      - name: Install dependencies
+        run: |
+          bundle config set --local without 'production'
+          bundle install
       - name: Verify project setup
         env:
           RAILS_ENV: test
