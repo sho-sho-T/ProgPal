@@ -1,68 +1,21 @@
 AllCops:
   NewCops: enable
-  TargetRubyVersion: 3.0
-  Exclude:
-    - "db/**/*"
-    - "config/**/*"
-    - "script/**/*"
-    - "bin/{rails,rake}"
-    - "vendor/**/*"
-    - "spec/fixtures/**/*"
+  TargetRubyVersion: 3.2
 
-Style/Documentation:
+Style/FrozenStringLiteralComment:
   Enabled: false
 
 Style/StringLiterals:
   EnforcedStyle: single_quotes
 
-Style/SymbolArray:
-  EnforcedStyle: brackets
-
-Style/WordArray:
-  EnforcedStyle: brackets
-
-Style/HashSyntax:
-  EnforcedStyle: ruby19_no_mixed_keys
-
-Layout/LineLength:
-  Max: 120
-
-Metrics/MethodLength:
-  Max: 20
-
-Metrics/BlockLength:
-  Exclude:
-    - "spec/**/*"
-
-Metrics/AbcSize:
-  Max: 30
-
-Style/TrailingCommaInArrayLiteral:
-  EnforcedStyleForMultiline: consistent_comma
-
-Style/TrailingCommaInHashLiteral:
-  EnforcedStyleForMultiline: consistent_comma
-
 Style/ClassAndModuleChildren:
-  EnforcedStyle: compact
+  Enabled: false
 
-Layout/MultilineMethodCallIndentation:
-  EnforcedStyle: indented
-
-Layout/FirstArrayElementIndentation:
-  EnforcedStyle: consistent
-
-Layout/FirstHashElementIndentation:
-  EnforcedStyle: consistent
-
-Style/FrozenStringLiteralComment:
+Bundler/DuplicatedGroup:
   Enabled: true
 
-Style/Lambda:
-  EnforcedStyle: literal
+Style/MutableConstant:
+  Enabled: false
 
-Naming/MethodParameterName:
-  MinNameLength: 2
-
-Style/NumericPredicate:
-  EnforcedStyle: comparison
+Layout/SpaceInsideArrayLiteralBrackets:
+  EnforcedStyle: no_space
