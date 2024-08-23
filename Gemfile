@@ -69,4 +69,6 @@ gem 'ruby-lsp', require: false
 
 gem 'rubocop-rails', require: false
 
-gem 'qiita'
+gem 'json', '~> 2.6', '>= 2.6.3'
+
+gem 'faraday'

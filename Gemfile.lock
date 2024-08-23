@@ -184,13 +184,6 @@ GEM
     public_suffix (6.0.1)
     puma (6.4.2)
       nio4r (~> 2.0)
-    qiita (1.5.0)
-      activesupport
-      faraday (>= 2, < 3)
-      rack
-      rainbow
-      rouge
-      slop (< 4.0.0)
     racc (1.8.1)
     rack (3.1.7)
     rack-session (2.0.0)
@@ -240,7 +233,6 @@ GEM
       io-console (~> 0.5)
     rexml (3.3.5)
       strscan
-    rouge (4.3.0)
     rspec-core (3.13.0)
       rspec-support (~> 3.13.0)
     rspec-expectations (3.13.1)
@@ -301,7 +293,6 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
-    slop (3.6.0)
     sorbet-runtime (0.5.11525)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
@@ -355,12 +346,13 @@ DEPENDENCIES
   dotenv-rails
   factory_bot_rails
   faker
+  faraday
   importmap-rails
   jbuilder
+  json (~> 2.6, >= 2.6.3)
   line-bot-api
   mysql2 (~> 0.5.6)
   puma (>= 5.0)
-  qiita
   rails (~> 7.2.0)
   rspec-rails (~> 6.1)
   rubocop
