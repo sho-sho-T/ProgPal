@@ -72,3 +72,4 @@ gem 'rubocop-rails', require: false
 gem 'json', '~> 2.6', '>= 2.6.3'
 
 gem 'faraday'
+gem 'faraday_middleware'
