@@ -18,11 +18,17 @@ module QiitaApiClient
 
     private
 
+    # Qiita API との通信に必要な設定を一箇所にまとめ、再利用可能な接続オブジェクトを提供
     def connection
+      # Faradayのコネクションを作成
       @connection ||= Faraday.new(url: BASE_URL) do |faraday|
+        # ヘッダーの設定
         faraday.headers['Authorization'] = "Bearer #{ENV['QIITA_TOKEN']}"
         faraday.headers['Content-Type'] = 'application/json'
+
+        # 最大 3 回までリダイレクトを自動的に追跡する
         faraday.use FaradayMiddleware::FollowRedirects, limit: 3
+        # デフォルトの HTTP アダプターを使用する
         faraday.adapter Faraday.default_adapter
       end
     end
