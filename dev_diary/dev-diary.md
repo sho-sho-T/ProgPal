@@ -41,7 +41,7 @@ TDD のアプローチは以下のような感じ
 
 ### QiitaTrendService の RSpec 書くよ
 
-####
+#### TDD とは
 
 TDD のアプローチは以下のような感じ
 
@@ -53,5 +53,43 @@ TDD のアプローチは以下のような感じ
 
 一旦これに沿って開発進めてみる。
 まず、`qiita_trend_service.rb`の spec を書くことから始める。
+
+---
+
+## 2024-8-28
+
+別のことやっててめっちゃ時間空いてる
+
+### faraday、faraday-middleware で HTTP 通信をしてみた。
+
+#### faraday
+
+HTTP クライアントライブラリで以下の特徴がある。
+
+- シンプルで柔軟
+- 様々な HTTP アダプタ
+- ミドルウェアの概念を使用して、リクエスト、レスポンスをカスタマイズ
+
+#### faraday-middleware
+
+Faraday のための追加ミドルウェアを提供する。
+
+- JSON や XML の自動パース
+- OAuth 認証（安全にサードパーティーアプリケーションにユーザーの情報へのアクセス権を与えるための標準的な認証プロトコル）
+- キャッシング
+- リトライ処理
+
+```ruby
+
+# 使用例
+    def connection
+      @connection ||= Faraday.new(url: BASE_URL) do |faraday|
+        faraday.headers['Authorization'] = "Bearer #{ENV['QIITA_TOKEN']}"
+        faraday.headers['Content-Type'] = 'application/json'
+        faraday.use FaradayMiddleware::FollowRedirects, limit: 3
+        faraday.adapter Faraday.default_adapter
+      end
+    end
+```
 
 ---
